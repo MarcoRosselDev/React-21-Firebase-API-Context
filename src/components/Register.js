@@ -7,12 +7,17 @@ export const Register = () => {
   });
 
   //para actualizar el state email and password usamos =>
-  const handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
+  const handleChange = ({ target: { name, value } }) => {
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="email">Email</label>
       <input
         type="email"
@@ -28,6 +33,7 @@ export const Register = () => {
         id="password"
         onChange={handleChange}
       />
+      <button>Register</button>
     </form>
   );
 };
