@@ -7,13 +7,15 @@ import { Login } from "./components/Login";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/alert" element={<Alert />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/register" element={<Register />}></Route>
-      <Route path="/projected-route" element={<ProjectedRoute />}></Route>
-    </Routes>
+    <div className="bg-slate-900 h-screen text-white flex ">
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/alert" element={<Alert />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/projected-route" element={<ProjectedRoute />}></Route>
+      </Routes>
+    </div>
   );
 };
 
