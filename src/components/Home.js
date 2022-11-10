@@ -1,4 +1,4 @@
-const Home = () => {
+export const Home = () => {
   const goo = () => {
     console.log("jola");
   };
@@ -15,5 +15,3 @@ const Home = () => {
     </div>
   );
 };
-
-export default Home;
