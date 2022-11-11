@@ -27,6 +27,7 @@ export const Login = () => {
       // si todo fue bien me devolvera a la paguina ./    (inicio)
     } catch (error) {
       setError(error.message);
+      console.log(error.message);
     }
   };
 
@@ -34,6 +35,7 @@ export const Login = () => {
 
   const handleGoogleSignin = async () => {
     try {
+      //throw new Error("google error");
       await loginWithGoogle();
       navigate("/");
     } catch (error) {
