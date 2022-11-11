@@ -1,3 +1,7 @@
-export const Alert = () => {
-  return <div>Alert</div>;
+export const Alert = ({ message }) => {
+  return (
+    <div>
+      <span>{message}</span>
+    </div>
+  );
 };

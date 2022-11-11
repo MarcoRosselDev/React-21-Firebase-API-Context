@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
-import { async } from "@firebase/util";
+import { Alert } from "./Alert";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -35,7 +35,7 @@ export const Register = () => {
 
   return (
     <div>
-      {error && <p>{error}</p>}
+      {error && <Alert message={error} />}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
