@@ -3,13 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
 export const Home = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     await logout();
-    navigate("/");
+    navigate("/login");
   };
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div>
