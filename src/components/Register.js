@@ -20,10 +20,11 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // si todo fue bien me devolvera a la paguina ./    (inicio)
+    setError(""); // para quitar el div con el msg de error
     try {
       await signup(user.email, user.password);
       navigate("/");
+      // si todo fue bien me devolvera a la paguina ./    (inicio)
     } catch (error) {
       if (error.code === "auth/internal-error") {
         setError("Correo invalido");
@@ -38,7 +39,7 @@ export const Register = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="youremail@company.ltd"
           onChange={handleChange}
@@ -46,10 +47,11 @@ export const Register = () => {
 
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          type="password"
           name="password"
           id="password"
           onChange={handleChange}
+          placeholder="******"
         />
         <button>Register</button>
       </form>
