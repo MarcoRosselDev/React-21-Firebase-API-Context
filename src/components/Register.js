@@ -23,9 +23,9 @@ export const Register = () => {
     // si todo fue bien me devolvera a la paguina ./    (inicio)
     try {
       await signup(user.email, user.password);
-      // navigate("/");
+      navigate("/");
     } catch (error) {
-      // setError(error.message);
+      setError(error.message);
       console.log(error.message);
     }
   };
