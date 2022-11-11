@@ -1,6 +1,7 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../firebase";
@@ -22,13 +23,14 @@ export function AuthProvider({ children }) {
 
   // pregunta si existe login de usuario activo
   const login = async (email, password) => {
-    const userCredentials = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    console.log(userCredentials);
+    signInWithEmailAndPassword(auth, email, password);
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+    });
+  }, []);
 
   return (
     <authContext.Provider value={{ signup, login }}>
