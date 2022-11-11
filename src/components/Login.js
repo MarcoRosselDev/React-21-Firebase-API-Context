@@ -97,6 +97,10 @@ export const Login = () => {
       >
         Google Login
       </button>
+
+      <a href="#!" className="my-4 text-sm flex justify-between px-3">
+        Forgot Password ?
+      </a>
     </div>
   );
 };
