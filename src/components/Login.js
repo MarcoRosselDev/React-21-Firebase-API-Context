@@ -9,7 +9,7 @@ export const Login = () => {
     password: "",
   });
 
-  const { signup } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState();
 
@@ -22,14 +22,11 @@ export const Login = () => {
     e.preventDefault();
     setError(""); // para quitar el div con el msg de error
     try {
-      await signup(user.email, user.password);
+      await login(user.email, user.password);
       navigate("/");
       // si todo fue bien me devolvera a la paguina ./    (inicio)
     } catch (error) {
-      if (error.code === "auth/internal-error") {
-        setError("Correo invalido");
-      }
-      //setError(error.message);
+      setError(error.message);
     }
   };
 
@@ -53,7 +50,7 @@ export const Login = () => {
           onChange={handleChange}
           placeholder="******"
         />
-        <button>Register</button>
+        <button>login</button>
       </form>
     </div>
   );
