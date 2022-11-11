@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
-import { async } from "@firebase/util";
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -9,7 +8,7 @@ export const Login = () => {
     password: "",
   });
 
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState();
 
@@ -28,6 +27,12 @@ export const Login = () => {
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  // login with google
+
+  const handleGoogleSignin = async () => {
+    await loginWithGoogle();
   };
 
   return (
@@ -52,6 +57,9 @@ export const Login = () => {
         />
         <button>login</button>
       </form>
+
+      {/* login with email */}
+      <button onClick={handleGoogleSignin}>Google Login</button>
     </div>
   );
 };
