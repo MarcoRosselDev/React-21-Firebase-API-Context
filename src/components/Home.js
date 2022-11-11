@@ -2,7 +2,10 @@ import { useAuth } from "../context/authContext";
 
 export const Home = () => {
   const { user } = useAuth();
-  console.log(user);
 
-  return <div>Home</div>;
+  return (
+    <div>
+      <h1>welcome {user.email}</h1>
+    </div>
+  );
 };
