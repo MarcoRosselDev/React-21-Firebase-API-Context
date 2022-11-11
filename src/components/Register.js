@@ -25,8 +25,10 @@ export const Register = () => {
       await signup(user.email, user.password);
       navigate("/");
     } catch (error) {
-      setError(error.message);
-      console.log(error.message);
+      if (error.code === "auth/internal-error") {
+        setError("Correo invalido");
+      }
+      //setError(error.message);
     }
   };
 
