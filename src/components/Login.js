@@ -32,7 +32,12 @@ export const Login = () => {
   // login with google
 
   const handleGoogleSignin = async () => {
-    await loginWithGoogle();
+    try {
+      await loginWithGoogle();
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
