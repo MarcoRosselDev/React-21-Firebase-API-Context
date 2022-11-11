@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Alert } from "./Alert";
 
 export const Login = () => {
@@ -66,8 +66,14 @@ export const Login = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password">Password</label>
+          <label
+            htmlFor="password"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Password
+          </label>
           <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
             type="password"
             name="password"
             id="password"
@@ -75,11 +81,22 @@ export const Login = () => {
             placeholder="******"
           />
         </div>
-        <button>login</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+          login
+        </button>
       </form>
 
+      <p className="my-4 text-sm flex justify-between px-3">
+        Don't have an Account <Link to="/register">Register</Link>
+      </p>
+
       {/* login with email */}
-      <button onClick={handleGoogleSignin}>Google Login</button>
+      <button
+        onClick={handleGoogleSignin}
+        className="bg-slate-50 hover:bg-slate-200 text-block shadow-md rounded border-2 w-full border-gray-300 py-2 px-4"
+      >
+        Google Login
+      </button>
     </div>
   );
 };
